@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preamble Puzzle Game</title>
+    <link rel="stylesheet" href="puzzle.css">
+</head>
+<style>
+    /* General Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #F2F2F2;
+    color: #4D4D4D;
+}
+
+/* Header Section */
+.header {
+    background-color: #330072; /* AQA Purple */
+    padding: 1rem 0;
+    color: #fff;
+    text-align: center;
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.header .logo {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #00BFA4; /* AQA Teal */
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin: 0 1rem;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+/* Puzzle Game Section */
+.puzzle-game {
+    background: linear-gradient(rgba(51, 0, 114, 0.8), rgba(0, 191, 164, 0.8));
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.game-container {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    max-width: 800px;
+    width: 100%;
+    text-align: center;
+}
+
+.game-title {
+    color: #330072;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.puzzle-board, .drop-area {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.puzzle-board div, .drop-area div {
+    background-color: #F26F21;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.drop-area div {
+    background-color: #00BFA4;
+    min-width: 150px;
+    height: 50px;
+}
+
+.cta-button {
+    background-color: #F26F21; /* AQA Orange */
+    color: #fff;
+    padding: 1rem 2rem;
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease-in-out;
+    margin: 0 0.5rem;
+    cursor: pointer;
+}
+
+.cta-button:hover {
+    background-color: #d35400;
+}
+
+#resultMessage {
+    margin-top: 20px;
+    font-size: 1.2rem;
+}
+
+footer {
+    background-color: #330072;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+</style>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <h1 class="logo">Preamble Puzzle Game</h1>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="games.html" class="active">Games</a></li>
+                    <li><a href="learn.html">Learn</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Puzzle Game Section -->
+    <section class="puzzle-game">
+        <div class="game-container">
+            <h2 class="game-title">Rearrange the Preamble!</h2>
+            <p>Drag and drop the segments of the Preamble in the correct order:</p>
+
+            <div class="puzzle-board" id="puzzleBoard">
+                <!-- Shuffled words/phrases will appear here -->
+            </div>
+
+            <div class="drop-area" id="dropArea">
+                <!-- Drop areas for players to reorder the pieces -->
+            </div>
+
+            <button class="cta-button" id="checkButton">Check Answer</button>
+            <p id="resultMessage"></p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Nagrik Aur Samvidhan. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+    const puzzleBoard = document.getElementById('puzzleBoard');
+    const dropArea = document.getElementById('dropArea');
+    const checkButton = document.getElementById('checkButton');
+    const resultMessage = document.getElementById('resultMessage');
+
+    const preambleSegments = [
+        "We, the people of India,",
+        "having solemnly resolved to constitute India",
+        "into a Sovereign Socialist Secular Democratic Republic",
+        "and to secure to all its citizens:",
+        "Justice, social, economic and political;",
+        "Liberty of thought, expression, belief, faith and worship;",
+        "Equality of status and of opportunity;",
+        "and to promote among them all",
+        "Fraternity assuring the dignity of the individual",
+        "and the unity and integrity of the Nation."
+    ];
+
+    let shuffledSegments = [...preambleSegments].sort(() => Math.random() - 0.5);
+
+    shuffledSegments.forEach(segment => {
+        let div = document.createElement('div');
+        div.textContent = segment;
+        div.draggable = true;
+        div.classList.add('puzzle-piece');
+        puzzleBoard.appendChild(div);
+    });
+
+    let selectedPiece = null;
+
+    puzzleBoard.addEventListener('dragstart', e => {
+        selectedPiece = e.target;
+    });
+
+    dropArea.addEventListener('dragover', e => {
+        e.preventDefault();
+    });
+
+    dropArea.addEventListener('drop', e => {
+        if (e.target.classList.contains('drop-slot')) {
+            e.target.textContent = selectedPiece.textContent;
+            selectedPiece.remove();
+        }
+    });
+
+    checkButton.addEventListener('click', () => {
+        const dropSlots = document.querySelectorAll('.drop-slot');
+        let playerOrder = Array.from(dropSlots).map(slot => slot.textContent);
+        if (JSON.stringify(playerOrder) === JSON.stringify(preambleSegments)) {
+            resultMessage.textContent = "Correct! You've arranged the Preamble correctly!";
+            resultMessage.style.color = 'green';
+        } else {
+            resultMessage.textContent = "Incorrect. Try again!";
+            resultMessage.style.color = 'red';
+        }
+    });
+
+    // Create drop slots for answers
+    preambleSegments.forEach(() => {
+        let slot = document.createElement('div');
+        slot.classList.add('drop-slot');
+        dropArea.appendChild(slot);
+    });
+});
+
+    </script>
+</body>
+</html>

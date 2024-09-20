@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login & Signup - Nagrik Aur Samvidhan</title>
+  <link rel="stylesheet" href="home.css">
+</head>
+<body>
+  <!-- Header Section -->
+  <header class="header">
+    <div class="container">
+      <h1 class="logo">Nagrik Aur Samvidhan</h1>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="games.html">Games</a></li>
+          <li><a href="learn.html">Learn</a></li>
+          <li><a href="resources.html">Resources</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="feedback.html">Feedback</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+ 
+  <!-- Login/Signup Section -->
+  <section class="auth">
+    <div class="container">
+      <div class="auth-form-container">
+        <div class="form-switch">
+          <button class="switch-btn active" data-target="#login-form">Login</button>
+          <button class="switch-btn" data-target="#signup-form">Signup</button>
+        </div>
+        
+        <!-- Login Form -->
+        <div id="login-form" class="auth-form active">
+          <h2>Login</h2>
+          <form action="profile.html" method="post">
+            <label for="login-email">Email:</label>
+            <input type="email" id="login-email" name="email" required>
+            
+            <label for="login-password">Password:</label>
+            <input type="password" id="login-password" name="password" required>
+            
+    <a href="profile.html">Login</a>
+          </form>
+        </div>
+        
+        <!-- Signup Form -->
+        <div id="signup-form" class="auth-form">
+          <h2>Signup</h2>
+          <form action="#" method="post">
+            <label for="signup-name">Name:</label>
+            <input type="text" id="signup-name" name="name" required>
+            
+            <label for="signup-email">Email:</label>
+            <input type="email" id="signup-email" name="email" required>
+            
+            <label for="signup-password">Password:</label>
+            <input type="password" id="signup-password" name="password" required>
+            
+            <label for="signup-confirm-password">Confirm Password:</label>
+            <input type="password" id="signup-confirm-password" name="confirm-password" required>
+            
+    <a href="profile.html">Sign Up</a>
+            
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+
+  <!-- Footer Section -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2024 Nagrik Aur Samvidhan. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // JavaScript to handle form switching
+    document.querySelectorAll('.switch-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.auth-form').forEach(form => form.classList.remove('active'));
+        document.querySelectorAll('.switch-btn').forEach(btn => btn.classList.remove('active'));
+        document.querySelector(btn.getAttribute('data-target')).classList.add('active');
+        btn.classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>

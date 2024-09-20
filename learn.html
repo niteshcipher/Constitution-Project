@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Learn - Nagrik Aur Samvidhan</title>
+  <link rel="stylesheet" href="home.css">
+  <script src="learn.js" defer></script> <!-- Link to JS for interactive functionality -->
+</head>
+<body>
+  <!-- Header Section -->
+  <header class="header">
+    <div class="container">
+      <h1 class="logo">Nagrik Aur Samvidhan</h1>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="games.html">Games</a></li>
+          <li><a href="learn.html" class="active">Learn</a></li>
+          <li><a href="resources.html">Resources</a></li>
+          <li><a href="community.html">Community</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="feedback.html">Feedback</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Learn Section -->
+  <section class="learn">
+    <div class="container">
+      <h2>Learn About the Constitution</h2>
+      <p>Get an easy-to-understand overview of India's Constitution, its Preamble, Fundamental Rights, Duties, and Directive Principles.</p>
+      <div class="learn-content">
+        <h3>Preamble </h3>
+        <p>The Preamble is the introduction to the Constitution and highlights its key values of justice, liberty, and equality for all citizens.</p>
+        
+        <h3>Fundamental Rights</h3>
+        <p>Explore your six fundamental rights enshrined in the Constitution, from the Right to Equality to the Right to Constitutional Remedies.</p>
+
+        <h3>Directive Principles of State Policy</h3>
+        <p>These principles guide the government in making laws and policies that aim at providing social and economic justice.</p>
+
+        <h3>Fundamental Duties</h3>
+        <p>Your responsibilities as a citizen of India. Learn how fulfilling your duties can make our nation stronger.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Explore More Section with Interactive Cards -->
+  <section class="explore-more">
+    <div class="container">
+      <h2>Explore More</h2>
+      <p>Delve deeper into the key elements of the Indian Constitution. Click on a topic to learn more.</p>
+    
+      <div class="explore-cards">
+        <div class="explore-card" id="preamble-card">
+          <img src="NicePng_indian-png_905477.png" alt="Preamble Icon">
+          <h3>Preamble</h3>
+          <p>Discover the guiding principles that form the heart of our Constitution.</p>
+          <button class="explore-btn" onclick="showDetails('preamble')">Learn More</button>
+        </div>
+
+        <div class="explore-card" id="rights-card">
+          <img src="NicePng_indian-png_905477.png" alt="Fundamental Rights Icon">
+          <h3>Fundamental Rights</h3>
+          <p>Understand your core rights as an Indian citizen, enshrined in the Constitution.</p>
+          <button class="explore-btn" onclick="showDetails('rights')">Learn More</button>
+        </div>
+
+        <div class="explore-card" id="duties-card">
+          <img src="NicePng_indian-png_905477.png" alt="Fundamental Duties Icon">
+          <h3>Fundamental Duties</h3>
+          <p>Learn your responsibilities as a citizen and contribute to nation-building.</p>
+          <button class="explore-btn" onclick="showDetails('duties')">Learn More</button>
+        </div>
+
+        <div class="explore-card" id="directives-card">
+          <img src="NicePng_indian-png_905477.png" alt="Directive Principles Icon">
+          <h3>Directive Principles</h3>
+          <p>Explore the government’s guiding principles for ensuring social and economic justice.</p>
+          <button class="explore-btn" onclick="showDetails('directives')">Learn More</button>
+        </div>
+      </div>
+
+      <!-- Details Section (Hidden by Default) -->
+      <div class="details-section" id="details-section">
+        <div class="details-content" id="preamble-details">
+          <h3>Preamble</h3>
+          <p>The Preamble serves as an introduction to the Constitution and states its objectives: Justice, Liberty, Equality, and Fraternity. It reflects the core values that India upholds as a democratic republic.</p>
+          <button class="close-btn" onclick="hideDetails()">Close</button>
+        </div>
+
+        <div class="details-content" id="rights-details">
+          <h3>Fundamental Rights</h3>
+          <p>The six fundamental rights include Right to Equality, Right to Freedom, Right Against Exploitation, Right to Freedom of Religion, Cultural and Educational Rights, and Right to Constitutional Remedies.</p>
+          <button class="close-btn" onclick="hideDetails()">Close</button>
+        </div>
+
+        <div class="details-content" id="duties-details">
+          <h3>Fundamental Duties</h3>
+          <p>Fundamental Duties include respecting the national symbols, protecting public property, and upholding the spirit of unity and integrity in the country.</p>
+          <button class="close-btn" onclick="hideDetails()">Close</button>
+        </div>
+
+        <div class="details-content" id="directives-details">
+          <h3>Directive Principles</h3>
+          <p>The Directive Principles of State Policy guide the government to create policies that provide social and economic justice and aim at the welfare of the people.</p>
+          <button class="close-btn" onclick="hideDetails()">Close</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2024 Nagrik Aur Samvidhan. All Rights Reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nagrik Aur Samvidhan - Community</title>
+  <link rel="stylesheet" href="home.css">
+  <script defer src="community.js"></script>
+</head>
+<style>
+    /* Community Hero Section */
+.community-hero {
+  background: linear-gradient(rgba(51, 0, 114, 0.8), rgba(0, 191, 164, 0.8)), url('https://www.inditales.com/wp-content/uploads/2012/03/parliament-building-india.jpg') no-repeat center center/cover;
+  height: 60vh;
+}
+
+/* Community Content Section */
+.community-content {
+  padding: 4rem 0;
+  background-color: #F2F2F2;
+}
+
+.community-content h2 {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #330072;
+}
+
+.community-content p {
+  text-align: center;
+  margin-bottom: 3rem;
+  font-size: 1.2rem;
+}
+
+.community-grid {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.community-card {
+  flex: 1;
+  background-color: white;
+  border-radius: 10px;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.community-card h3 {
+  font-size: 1.8rem;
+  color: #00BFA4;
+  margin-bottom: 1rem;
+}
+
+.community-card p {
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.community-card:hover {
+  transform: translateY(-10px);
+}
+
+.community-card a.cta-button {
+  background-color: #330072;
+  color: white;
+}
+
+.community-card a.cta-button:hover {
+  background-color: #F26F21;
+}
+
+</style>
+<body>
+  <!-- Header Section -->
+  <header class="header">
+    <div class="container">
+      <h1 class="logo">Nagrik Aur Samvidhan</h1>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="games.html">Games</a></li>
+          <li><a href="learn.html">Learn</a></li>
+          <li><a href="resources.html">Resources</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="community.html" class="active">Community</a></li>
+          <li><a href="feedback.html">Feedback</a></li>
+          <select id="language-select">
+            <option value="en">English</option>
+            <option value="hi">Hindi</option>
+            <option value="ta">Tamil</option>
+          </select>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section for Community -->
+  <section class="hero community-hero">
+    <div class="hero-content">
+      <div class="hero-text">
+        <h2>Join the Community</h2>
+        <p>Connect, share, and collaborate with fellow learners and experts on the Constitution of India.</p>
+        <a href="#community-section" class="cta-button">Explore the Community</a>
+        <a href="login.html" class="cta-button secondary">Sign In</a>
+      </div>
+      <div class="hero-image">
+        <img src="https://th.bing.com/th/id/OIP.jHas4VtXqQ3P19bAojU0bwHaHa?rs=1&pid=ImgDetMain" alt="Community" class="animated-image">
+      </div>
+    </div>
+  </section>
+
+  <!-- Community Section -->
+  <section id="community-section" class="community-content">
+    <div class="container">
+      <h2>Our Community</h2>
+      <p>At Nagrik Aur Samvidhan, our community is made up of passionate individuals who want to learn and share their knowledge about the Indian Constitution. Here’s how you can be a part of it:</p>
+
+      <div class="community-grid">
+        <div class="community-card">
+          <h3>Discussions</h3>
+          <p>Join lively discussions, ask questions, and share insights on constitutional rights and responsibilities.</p>
+          <a href="discussions.html" class="cta-button">Join Discussions</a>
+        </div>
+
+        <div class="community-card">
+          <h3>Webinars</h3>
+          <p>Attend live webinars hosted by legal experts and constitutional scholars. Stay updated on upcoming events.</p>
+          <a href="webinars.html" class="cta-button">View Webinars</a>
+        </div>
+
+        <div class="community-card">
+          <h3>Forums</h3>
+          <p>Engage in topic-based forums to deep-dive into specific aspects of the Constitution. Connect with like-minded learners.</p>
+          <a href="forums.html" class="cta-button">Explore Forums</a>
+        </div>
+
+        <div class="community-card">
+          <h3>Contribute</h3>
+          <p>Write articles, submit videos, or suggest quizzes. Help the community grow by sharing your expertise.</p>
+          <a href="contribute.html" class="cta-button">Contribute</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2024 Nagrik Aur Samvidhan. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

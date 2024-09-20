@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nagrik Aur Samvidhan - Gaming Edition</title>
+  <link rel="stylesheet" href="home.css">
+   <script defer src="chatbot.js"></script>
+</head>
+<body>
+  <!-- Header Section -->
+  <header class="header">
+    <div class="container">
+      <h1 class="logo">Nagrik Aur Samvidhan</h1>
+      <nav>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="games.html" class="active">Games</a></li>
+            <li><a href="learn.html">Learn</a></li>
+            <li><a href="resources.html">Resources</a></li>
+          <li><a href="community.html">Community</a></li>
+
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="feedback.html">Feedback</a></li>
+            <select id="language-select">
+              <option value="en">English</option>
+              <option value="hi">Hindi</option>
+              <option value="ta">Tamil</option>
+              <!-- More languages -->
+            </select>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-text">
+        <h2>Explore Your Constitutional Powers!</h2>
+        <p>Gamify your learning of the Constitution of India. Level up your knowledge!</p>
+        <a href="login.html" class="cta-button">Start Playing</a>
+        <a href="learn.html" class="cta-button secondary">Learn More</a>
+        <button class="chatbot-toggle" id="chatbotToggle">Chat with Us</button>
+      </div>
+      <div class="hero-image">
+        <img src="constitutionalism-in-india-1.webp" alt="Gaming Character" class="animated-image">
+      </div>
+    </div>
+  </section>
+
+  <!-- Chatbot Section -->
+  <div class="chatbot-container" id="chatbotContainer">
+    <div class="chatbot-header">
+      <h3>Chatbot</h3>
+    </div>
+    <div class="chatbot-body">
+      <ul class="chatbot-messages" id="chatbotMessages">
+        <li class="chatbot-message">Hello! How can I assist you?</li>
+      </ul>
+    </div>
+    <div class="chatbot-footer">
+      <input type="text" id="chatbotInput" class="chatbot-input" placeholder="Type a message..." />
+      <button class="chatbot-button" id="chatbotSend">Send</button>
+    </div>
+  </div>
+  
+
+  <!-- Footer Section -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2024 Nagrik Aur Samvidhan. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+   <!-- Chatbot JavaScript -->
+   <script>
+    const chatbotToggle = document.getElementById('chatbotToggle');
+    const chatbotContainer = document.getElementById('chatbotContainer');
+    const chatbotSend = document.getElementById('chatbotSend');
+    const chatbotInput = document.getElementById('chatbotInput');
+    const chatbotMessages = document.getElementById('chatbotMessages');
+
+    chatbotToggle.addEventListener('click', () => {
+      chatbotContainer.style.display = chatbotContainer.style.display === 'block' ? 'none' : 'block';
+    });
+
+    chatbotSend.addEventListener('click', () => {
+      const userMessage = chatbotInput.value.trim();
+      if (userMessage) {
+        addMessage(userMessage, 'user-message');
+        chatbotInput.value = '';
+        setTimeout(() => {
+          addMessage('Thanks for reaching out. We will get back to you soon!', 'chatbot-message');
+        }, 1000);
+      }
+    });
+
+    function addMessage(message, className) {
+      const li = document.createElement('li');
+      li.textContent = message;
+      li.classList.add('chatbot-message');
+      if (className) {
+        li.classList.add(className);
+      }
+      chatbotMessages.appendChild(li);
+      chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+    }
+  </script>
+</body>
+</html>
